@@ -29,9 +29,9 @@ export class NotasPage {
             console.log('AbreFormulario');
             this.abreForm = !this.abreForm;
             if (this.abreForm) {
-                this.tituloPagina = "Adicionar Nota";
+                this.tituloPagina = "Adicionar Nota -";
             }else{
-                this.tituloPagina = "Notas"
+                this.tituloPagina = "Notas -"
             }
         }
 
