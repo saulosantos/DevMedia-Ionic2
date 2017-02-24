@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{tituloPagina}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+  <ion-content>
+    <!-- Real floating action button, fixed. It will not scroll with the content -->
+    <ion-fab top right edge>
+      <button ion-fab mini (click)="AbreFormulario()"><ion-icon name="add"></ion-icon></button>
+    </ion-fab>
+<div padding [hidden]="!abreForm">
+  <ion-item>
+    <ion-label color="primary" stacked>Título</ion-label>
+    <ion-input type="text" [(ngModel)]="nota.Title" placeholder="Título da nota"></ion-input>
+  </ion-item>
+    <ion-item>
+    <ion-label color="primary" stacked>Descrição</ion-label>
+    <ion-input type="text" [(ngModel)]="nota.Body" placeholder="Descrição da nota"></ion-input>
+  </ion-item>
+  <p>
+    <button  ion-button color="primary" (click)="adicionaNota()" block>Adicionar</button>
+  </p>
+</div>
+
+  </ion-content>
