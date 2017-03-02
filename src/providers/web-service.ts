@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
-import {NotaInterface} from '../interfaces/notaInterface';
+import { NotaInterface } from '../interfaces/notaInterface';
 
 /*
   Generated class for the WebService provider.
@@ -15,7 +15,7 @@ export class WebService {
 
   private url: string = "http://devmedianotesapi.azurewebsites.net/";
   //Tem que incluir o Headers no import do angular http, em cima dessa pagina
-  private headers = new Headers({'Accept':'application/json'})
+  private headers = new Headers({ 'Accept': 'application/json' })
 
   constructor(public http: Http) {
     console.log('Hello WebService Provider');
@@ -23,10 +23,28 @@ export class WebService {
 
   addNota(nota: NotaInterface) {
 
-      return this.http.post(this.url+'api/notes',nota, {headers:this.headers})
+    return this.http.post(this.url + 'api/notes', nota, { headers: this.headers })
       //pesquisar a diferenca entre toPromise e map
       .toPromise()
       .then(res => res.json());
   }
+
+  getNotas() {
+
+    return this.http.get(this.url + 'api/notes')
+      //pesquisar a diferenca entre toPromise e map
+      .toPromise()
+      .then(res => res.json());
+  }
+
+
+  editNota(nota: NotaInterface) {
+
+    return this.http.put(this.url + 'api/notes/' + nota.Id, nota, { headers: this.headers })
+      //pesquisar a diferenca entre toPromise e map
+      .toPromise()
+      .then(res => res.json());
+  }
+
 
 }
