@@ -1,11 +1,9 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { AboutPage } from '../pages/about/about';
 import { NotasPage } from '../pages/notas/notas';
 import { DetalhePage } from '../pages/detalhe/detalhe';
-import { ContactPage } from '../pages/contact/contact';
-import { HomePage } from '../pages/home/home';
+import { PrevisaoPage } from '../pages/previsao/previsao';
 import { TabsPage } from '../pages/tabs/tabs';
 import { WebService} from '../providers/web-service';
 
@@ -14,9 +12,7 @@ import { WebService} from '../providers/web-service';
     MyApp,
     NotasPage,
     DetalhePage,
-    AboutPage,
-    ContactPage,
-    HomePage,
+    PrevisaoPage,
     TabsPage
   ],
   imports: [
@@ -27,9 +23,7 @@ import { WebService} from '../providers/web-service';
     MyApp,
     NotasPage,
     DetalhePage,
-    AboutPage,
-    ContactPage,
-    HomePage,
+    PrevisaoPage,
     TabsPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},WebService]

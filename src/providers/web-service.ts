@@ -14,6 +14,8 @@ import { NotaInterface } from '../interfaces/notaInterface';
 export class WebService {
 
   private url: string = "http://devmedianotesapi.azurewebsites.net/";
+
+  private urlPrevisao: string = 'http://api.openweathermap.org/data/2.5/weather?APPID=6eb4a902c1efee0e576b2bfc34965085&lang=pt&units=metric&q=';
   //Tem que incluir o Headers no import do angular http, em cima dessa pagina
   private headers = new Headers({ 'Accept': 'application/json' })
 
@@ -45,6 +47,22 @@ export class WebService {
       .toPromise()
       .then(res => res.json());
   }
+
+    deletaNota(nota: NotaInterface) {
+
+    return this.http.delete(this.url + 'api/notes/' + nota.Id, { headers: this.headers })
+      //pesquisar a diferenca entre toPromise e map
+      .toPromise()
+      .then(res => res.json());
+  }
+
+
+  getPrevisao(cidade: string) {
+        return this.http.get(this.urlPrevisao + cidade)
+      .toPromise()
+      .then(res => res.json());
+  }
+
 
 
 }
